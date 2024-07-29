@@ -28,8 +28,15 @@ public class App {
                 }
                 default -> System.out.println("연산기호를 확인해 주십시오.");
             }
-            resultList[index++] = result;
             System.out.println("결과: " + String.format("%.1f", result));
+
+            if(index == 10) {
+                index--;
+                for(int i=0; i<index; i++) {
+                    resultList[i] = resultList[i+1];
+                }
+            }
+            resultList[index++] = result;
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
         }while(!sc.next().equals("exit"));
