@@ -13,5 +13,19 @@ public class App {
 
         System.out.print("사칙연산 기호를 입력하세요: ");
         char operator = sc.next().charAt(0);
+
+        double result = 0;
+        switch (String.valueOf(operator)){
+            case "+" -> result = num1 + num2;
+            case "-" -> result = num1 - num2;
+            case "*" -> result = num1 * num2;
+            case "/" -> {
+                if (num2 == 0) System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                else result = (double)num1 / num2;
+            }
+            default -> System.out.println("연산기호를 확인해 주십시오.");
+        };
+        System.out.println("결과: " + String.format("%.1f", result));
+
     }
 }
