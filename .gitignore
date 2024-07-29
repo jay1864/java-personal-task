@@ -27,3 +27,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### 강의 ###
+src/practice/
+src/hong/
+src/baekjoon/
