@@ -1,13 +1,13 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        double[] resultList = new double[10];
-        int index = 0;
+        ArrayList<Double> resultList = new ArrayList<>();
 
         do{
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -29,14 +29,13 @@ public class App {
                 default -> System.out.println("연산기호를 확인해 주십시오.");
             }
             System.out.println("결과: " + String.format("%.1f", result));
+            resultList.add(result);
 
-            if(index == 10) {
-                index--;
-                for(int i=0; i<index; i++) {
-                    resultList[i] = resultList[i+1];
-                }
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            if(sc.next().equals("remove")){
+                resultList.remove(resultList.remove(0));
             }
-            resultList[index++] = result;
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
         }while(!sc.next().equals("exit"));
