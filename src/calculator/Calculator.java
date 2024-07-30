@@ -3,10 +3,14 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<Double> results = new ArrayList<>();
+    private ArrayList<Double> results;
+
+    Calculator(ArrayList<Double> results){
+        this.results = results;
+    }
 
     public double calculate (int num1, int num2, char op) throws InvalidInputException {
-        double result = 0;
+        double result;
         switch (String.valueOf(op)){
             case "+" -> result = num1 + num2;
             case "-" -> result = num1 - num2;
@@ -30,8 +34,8 @@ public class Calculator {
         this.results = results;
     }
 
-    public void removeResult() {
-        this.results.remove(0);
+    public void removeResult(int index) {
+        this.results.remove(index);
     }
 
     public void inquiryResults() {
