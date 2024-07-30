@@ -1,5 +1,6 @@
 package calculator;
 
+import calculator.operator.*;
 import java.util.ArrayList;
 
 public class ArithmeticCalculator extends Calculator {
@@ -14,6 +15,7 @@ public class ArithmeticCalculator extends Calculator {
             case "-" -> new SubtractOperator();
             case "*" -> new MultiplyOperator();
             case "/" -> new DivideOperator();
+            case "%" -> new ModOperator();
             default -> throw new InvalidInputException("[입력오류] : 연산기호를 확인해 주십시오.");
         };
         return operator.operate(num1, num2);
