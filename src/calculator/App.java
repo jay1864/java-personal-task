@@ -19,19 +19,19 @@ public class App {
             try{
                 double result = calc.calculate(num1, num2, operator);
                 System.out.println("결과: " + String.format("%.1f", result));
-                calc.resultList.add(result);
+                calc.getResultList().add(result);
             }catch (InvalidInputException e) {
                 System.out.println(e.getMessage());
             }
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             if(sc.next().equals("remove")){
-                calc.resultList.remove(0);
+                calc.getResultList().remove(0);
             }
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             if(sc.next().equals("inquiry")){
-                for(double val : calc.resultList){
+                for(double val : calc.getResultList()){
                     System.out.println(val);
                 }
             }

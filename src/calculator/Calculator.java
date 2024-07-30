@@ -3,7 +3,7 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    ArrayList<Double> resultList = new ArrayList<>();
+    private ArrayList<Double> resultList = new ArrayList<>();
 
     public double calculate (int num1, int num2, char op) throws InvalidInputException {
         double result = 0;
@@ -20,6 +20,14 @@ public class Calculator {
             default -> throw new InvalidInputException("[입력오류] : 연산기호를 확인해 주십시오.");
         }
         return result;
+    }
+
+    public ArrayList<Double> getResultList() {
+        return resultList;
+    }
+
+    public void setResultList(ArrayList<Double> resultList) {
+        this.resultList = resultList;
     }
 
 }
