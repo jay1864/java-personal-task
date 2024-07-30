@@ -30,4 +30,7 @@ public class Calculator {
         this.resultList = resultList;
     }
 
+    public void removeResult() {
+        this.resultList.remove(0);
+    }
 }
