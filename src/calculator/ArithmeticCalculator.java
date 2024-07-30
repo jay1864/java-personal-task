@@ -9,21 +9,14 @@ public class ArithmeticCalculator extends Calculator {
     }
 
     public double calculate (int num1, int num2, char op) throws InvalidInputException {
-        double result;
-        switch (String.valueOf(op)){
-            case "+" -> result = num1 + num2;
-            case "-" -> result = num1 - num2;
-            case "*" -> result = num1 * num2;
-            case "/" -> {
-                if (num2 == 0){
-                    throw new InvalidInputException("[입력오류] : 나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                }
-                result = (double)num1 / num2;
-                result = Math.round(result * 100.0) / 100.0;    // 소숫점 둘째자리까지 반올림
-            }
+        Operator operator = switch (String.valueOf(op)){
+            case "+" -> new AddOperator();
+            case "-" -> new SubtractOperator();
+            case "*" -> new MultiplyOperator();
+            case "/" -> new DivideOperator();
             default -> throw new InvalidInputException("[입력오류] : 연산기호를 확인해 주십시오.");
-        }
-        return result;
+        };
+        return operator.operate(num1, num2);
     }
 
     @Override
