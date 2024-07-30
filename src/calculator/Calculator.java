@@ -3,7 +3,7 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<Double> resultList = new ArrayList<>();
+    private ArrayList<Double> results = new ArrayList<>();
 
     public double calculate (int num1, int num2, char op) throws InvalidInputException {
         double result = 0;
@@ -22,15 +22,19 @@ public class Calculator {
         return result;
     }
 
-    public ArrayList<Double> getResultList() {
-        return resultList;
+    public ArrayList<Double> getResults() {
+        return results;
     }
 
-    public void setResultList(ArrayList<Double> resultList) {
-        this.resultList = resultList;
+    public void setResults(ArrayList<Double> results) {
+        this.results = results;
     }
 
     public void removeResult() {
-        this.resultList.remove(0);
+        this.results.remove(0);
+    }
+
+    public void inquiryResults() {
+        System.out.println("연산결과 목록 = " + this.results.toString());
     }
 }
